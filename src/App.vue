@@ -1,25 +1,26 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
+import RestaurantCard from './components/RestaurantCard.vue'
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+    <!-- <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" /> -->
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <!-- <HelloWorld msg="You did it!" /> -->
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <RestaurantCard />
+    <!-- <TheWelcome /> -->
   </main>
 </template>
 
 <style scoped>
-@import url('./assets/styles/reset.css');
-@import url('https: //fonts.googleapis.com/css2?family=Roboto%3Awght%40300%3B400%3B700&display=swap');
+
 header {
   line-height: 1.5;
 }
