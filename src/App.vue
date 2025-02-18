@@ -1,7 +1,7 @@
 <script setup>
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
-import RestaurantCard from './components/RestaurantCard.vue'
+import RestaurantRow from './components/RestaurantRow.vue'
 </script>
 
 <template>
@@ -14,7 +14,7 @@ import RestaurantCard from './components/RestaurantCard.vue'
   </header>
 
   <main>
-    <RestaurantCard />
+    <RestaurantRow />
     <!-- <TheWelcome /> -->
   </main>
 </template>
