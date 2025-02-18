@@ -4,7 +4,7 @@
             Nos restaurants
         </h2>
         <div class="wrapper--card">
-            <RestaurantCard v-for="index in 3" :key="index" />
+            <RestaurantCard v-for="index in three_restaurent" :info_restaurant="index" :key="index" />
         </div>
     </div>
 </template>
@@ -13,7 +13,10 @@
 import { ref } from 'vue';
 import RestaurantCard from './RestaurantCard.vue';
 
-const example = ref( 'Hello Vue!' );
+const props = defineProps({
+    three_restaurent: Array,
+    required: true,
+})
 </script>
 
 <style scoped lang="scss">

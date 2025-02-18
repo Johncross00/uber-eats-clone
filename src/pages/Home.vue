@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-        <RestaurantRow />
+        <RestaurantRow v-for="data in data_restaurant" :key="data" :three_restaurent="data"/>
     </div>
 </template>
 
@@ -19,7 +19,7 @@ class Restaurant{
     }
 }
 
-let data_restaurant = []
+let data_restaurant = ref([])
 const makeDataRestaurant = () => {
     let three_restaurant =[]
 
@@ -28,7 +28,7 @@ const makeDataRestaurant = () => {
         
         if(three_restaurant.length == 2){
             three_restaurant.push( new_restaurant )
-            data_restaurant.push( three_restaurant)
+            data_restaurant.value.push( three_restaurant)
             three_restaurant = []
         }
         else{
@@ -38,6 +38,7 @@ const makeDataRestaurant = () => {
     console.log(data_restaurant)
 }
 onMounted(makeDataRestaurant)
+
 </script>
 
 <style scoped>

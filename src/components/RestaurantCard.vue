@@ -7,14 +7,14 @@
         <div class="restaurant--informations">
             <div class="top">
                 <p class="name">
-                    Subway
+                    {{ info_restaurant.name}}
                 </p>
                 <p class="note">
-                    <span>4.5</span>
+                    <span>{{ info_restaurant.note }}</span>
                 </p>
             </div>
             <p class="time">
-                20-30min
+                {{ info_restaurant.drive_time }}
             </p>
         </div>
     </div>
@@ -22,8 +22,9 @@
 
 <script setup>
 import { ref } from 'vue';
-
-const example = ref( 'Hello Vue!' );
+const props = defineProps({
+    info_restaurant: Object
+})
 </script>
 
 <style scoped lang="scss">
