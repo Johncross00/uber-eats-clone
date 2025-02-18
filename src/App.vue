@@ -2,6 +2,7 @@
 import HelloWorld from './components/HelloWorld.vue'
 import TheWelcome from './components/TheWelcome.vue'
 import RestaurantRow from './components/RestaurantRow.vue'
+import Home from './pages/Home.vue'
 </script>
 
 <template>
@@ -14,7 +15,7 @@ import RestaurantRow from './components/RestaurantRow.vue'
   </header>
 
   <main>
-    <RestaurantRow />
+    <Home />
     <!-- <TheWelcome /> -->
   </main>
 </template>
