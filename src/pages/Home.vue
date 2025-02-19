@@ -3,7 +3,7 @@
         <div class="header">
             <img src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/ee037401cb5d31b23cf780808ee4ec1f.svg"
                 alt="Logo de Uber Eats">
-            <input type="text" placeholder="De quoi avez vous envie?">
+            <input type="text" placeholder="De quoi avez vous envie?" v-model="user_search">
         </div>
         <div class="banner">
 
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import RestaurantRow from '../components/RestaurantRow.vue'
 import bd from '../bd.js'
 console.log( bd )
@@ -30,6 +30,7 @@ class Restaurant
 }
 
 let data_restaurant = ref( [] )
+let all_restaurants = []
 const makeDataRestaurant = () =>
 {
     let three_restaurant = []
@@ -37,6 +38,8 @@ const makeDataRestaurant = () =>
     for ( const restaurant of bd )
     {
         const new_restaurant = new Restaurant( restaurant.name, restaurant.note, restaurant.image, restaurant.drive_time )
+
+        all_restaurants.push(new_restaurant)
 
         if ( three_restaurant.length == 2 )
         {
@@ -51,6 +54,12 @@ const makeDataRestaurant = () =>
     }
     console.log( data_restaurant )
 }
+
+let user_search = ref('')
+watch(user_search, (newValue)=>{
+    let regex = RegExp( newValue )
+})
+
 onMounted( makeDataRestaurant )
 
 </script>
