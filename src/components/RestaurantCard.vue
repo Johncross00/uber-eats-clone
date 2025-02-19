@@ -1,6 +1,6 @@
 <template>
     <div class="restaurant--card">
-        <div class="restaurant--image">
+        <div :style="changeBackground" class="restaurant--image">
 
         </div>
 
@@ -21,10 +21,17 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
 const props = defineProps({
     info_restaurant: Object
 })
+
+const changeBackground = computed( () =>
+{
+    return {
+        backgroundImage: `url(${ props.info_restaurant.image })`
+    }
+} )
 </script>
 
 <style scoped lang="scss">
