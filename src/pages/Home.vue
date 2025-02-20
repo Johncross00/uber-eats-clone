@@ -3,7 +3,18 @@
         <div class="header">
             <img src="https://d3i4yxtzktqr9n.cloudfront.net/web-eats-v2/ee037401cb5d31b23cf780808ee4ec1f.svg"
                 alt="Logo de Uber Eats">
-            <input type="text" placeholder="De quoi avez vous envie?" v-model="user_search">
+            <div class="wrapper--input">
+                <input type="text" placeholder="De quoi avez vous envie?" v-model="user_search">
+                <div class="search">
+                    <div v-for="restaurant in search_restaurant" :key="restaurant"
+                        class="container--restaurant--search">
+                        <div class="wrapper--img">
+                            <img :src="restaurant.image" alt="">
+                        </div>
+                        <p>{{ restaurant.name }}</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="banner">
 
@@ -39,7 +50,7 @@ const makeDataRestaurant = () =>
     {
         const new_restaurant = new Restaurant( restaurant.name, restaurant.note, restaurant.image, restaurant.drive_time )
 
-        all_restaurants.push(new_restaurant)
+        all_restaurants.push( new_restaurant )
 
         if ( three_restaurant.length == 2 )
         {
@@ -55,10 +66,16 @@ const makeDataRestaurant = () =>
     console.log( data_restaurant )
 }
 
-let user_search = ref('')
-watch(user_search, (newValue)=>{
-    let regex = RegExp( newValue )
-})
+let user_search = ref( '' )
+let search_restaurant = ref( [] )
+
+watch( user_search, ( newValue ) =>
+{
+    let regex = RegExp( newValue, 'i' )
+    let new_search_restaurant = all_restaurants.filter( restaurant => regex.test( restaurant.name ) )
+
+    newValue == 0 ? search_restaurant.value = [] : search_restaurant.value = new_search_restaurant
+} )
 
 onMounted( makeDataRestaurant )
 
@@ -80,17 +97,57 @@ onMounted( makeDataRestaurant )
             width: 200px;
         }
 
-        input {
-            background-color: #f6f6f6;
-            border-radius: 15px;
-            border: none;
-            height: 60px;
-            width: 400px;
-            padding-left: 20px;
-            box-shadow: 0px 5px 5px #eeeeee;
-            font-size: 1.2rem;
-            outline: none;
+        .wrapper--input {
+            position: relative;
+
+            input {
+                background-color: #f6f6f6;
+                border-radius: 15px;
+                border: none;
+                height: 60px;
+                width: 400px;
+                padding-left: 20px;
+                box-shadow: 0px 5px 5px #eeeeee;
+                font-size: 1.2rem;
+                outline: none;
+            }
+
+            .search {
+                position: absolute;
+                top: 100%;
+                width: 100%;
+                // height: 300px;
+                background-color: #f6f6f6;
+                // border: 1px solid red;
+            }
+
+            .container--restaurant--search {
+                display: flex;
+                align-items: center;
+                // gap: 50px;
+                padding: 10px;
+                // justify-content: space-between;
+
+                &:hover{
+                    background-color: #eeeeee;
+                }
+
+                .wrapper--img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    margin-right: 25px;
+
+                    img {
+                        width: auto;
+                        height: 100%;
+                    }
+                }
+            }
         }
+
+
     }
 
     .banner {
