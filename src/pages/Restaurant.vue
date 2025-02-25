@@ -31,7 +31,6 @@ const restaurant = ref(
   font-weight: 700;
   cursor: pointer;
 
-  // pointer-events: none;
   text-decoration: none!important;
   color: black;
 

@@ -108,6 +108,10 @@ onMounted(makeDataRestaurant);
     // padding: 50px;
     img {
       width: 200px;
+      background-color: #eeeeee;
+      padding: 5px;
+      height: 60px;
+      border-radius: 15px;
     }
 
     .wrapper--input {
@@ -167,6 +171,7 @@ onMounted(makeDataRestaurant);
     background-image: url("https://th.bing.com/th/id/R.9c14304ad1375a3c79d400e0c7743646?rik=Z0Q98S4KyhOwLA&pid=ImgRaw&r=0");
     background-size: full;
     background-position: center;
+    border-radius: 150px;
   }
 }
 </style>

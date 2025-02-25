@@ -11,7 +11,6 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
 import RestaurantCard from "./RestaurantCard.vue";
 
 const props = defineProps( {
