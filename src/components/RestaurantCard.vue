@@ -36,7 +36,8 @@ const changeBackground = computed( () =>
 
 <style scoped lang="scss">
 .restaurant--card {
-    width: 32%;
+    width: 100%;
+    // width: 32%;
     height: 30vh;
 
     p {

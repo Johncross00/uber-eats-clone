@@ -12,12 +12,12 @@
           v-model="user_search"
         />
         <div class="search">
-          <RouterLink to="/restaurant">
-            <div
-              v-for="restaurant in search_restaurant"
-              :key="restaurant"
-              class="container--restaurant--search"
-            >
+          <RouterLink
+            v-for="restaurant in search_restaurant"
+            :key="restaurant"
+            :to="`/restaurant/${restaurant.name}`"
+          >
+            <div class="container--restaurant--search">
               <div class="wrapper--img">
                 <img :src="restaurant.image" alt="" />
               </div>
